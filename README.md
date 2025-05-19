@@ -10,3 +10,6 @@ docker run --name postgres-container -d -e POSTGRES_USER=user -e POSTGRES_PASSWO
 ```
 
 ![alt](https://github.com/luizaandradeti/Java-Streams/blob/a22fd86b0be760779dc888087ace8c6b58328313/imgs/qdocker.png)
+
+
+![alt](imgs/uml.png)
