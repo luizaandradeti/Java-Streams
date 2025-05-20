@@ -38,5 +38,6 @@ public class Pedido {
         @JsonManagedReference
         private Cliente cliente;
 
+
         //um pedido pertence a um cliente, inner join atraves de id
     }

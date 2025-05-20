@@ -1,8 +1,4 @@
-package com.luiza.pedidos.tabelas;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package com.luiza.pedidos.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,10 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PedidoResponseDto {
     private Long id;
     private String nome;
     private String ultimoNome;
@@ -23,10 +16,9 @@ public class Cliente {
     private String cpf;
     private Double salario;
     private Double prazoPagamento;
-
-
-
-    // Um cliente possui um pedido
+    private Double valor;
+    private int prazoCobranca;
+    private Boolean aprovada;
+    private boolean incluida;
+    private String detalhes;
 }
-
-
