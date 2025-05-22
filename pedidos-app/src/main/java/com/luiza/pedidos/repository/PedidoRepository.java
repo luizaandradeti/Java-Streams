@@ -15,8 +15,6 @@ public interface PedidoRepository extends CrudRepository<Pedido, Long> {
     List<Pedido> findAllByIncluidaIsFalse();
 
     List<Pedido> findAllByAprovadaIsTrue();
-
-
     @Transactional
     @Modifying
     @Query(value = "UPDATE pedido SET aprovada = :aprovada, " +
