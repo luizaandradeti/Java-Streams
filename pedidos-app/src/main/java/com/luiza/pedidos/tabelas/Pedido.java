@@ -22,15 +22,10 @@ public class Pedido {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
-
-        private Double valor;
-
-        private int prazoCobranca;
-
+        private Double valorFormatado;
+        private int prazoPagamento;
         private Boolean aprovada;
-
         private boolean incluida;
-
         private String detalhes;
 
         @OneToOne(cascade = CascadeType.PERSIST)

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
-
     private PedidoService  pedidoService;
 
 public ResponseEntity<PedidoResponseDto> criar(@RequestBody PedidoRequestDto pedidoRequestDto) {

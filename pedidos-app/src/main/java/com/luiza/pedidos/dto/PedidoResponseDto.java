@@ -16,7 +16,7 @@ public class PedidoResponseDto {
     private String cpf;
     private Double salario;
     private Double prazoPagamento;
-    private Double valor;
+    private Double valorFormatado;
     private int prazoCobranca;
     private Boolean aprovada;
     private boolean incluida;
