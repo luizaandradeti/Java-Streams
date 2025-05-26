@@ -3,9 +3,9 @@ package com.luiza.pedidos.mapper;
 import com.luiza.pedidos.dto.PedidoRequestDto;
 import com.luiza.pedidos.dto.PedidoResponseDto;
 import com.luiza.pedidos.tabelas.Pedido;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -34,9 +34,11 @@ public interface PedidoMapper {
     @Mapping(target = "valorFormatado", expression = "java(setValorFormatado(pedido))")
     PedidoResponseDto convertEntityToDto(Pedido pedido);
 
-    List<PedidoResponseDto> convertListEntityToListDto(Iterable<Pedido> propostas);
 
-    default String setValorSolicitadoFormat(Pedido pedido) {
+    List<PedidoResponseDto> convertListEntityToListDto(Iterable<Pedido> pedidos);
+    
+    default String setValorSolicitadoFmt(Pedido pedido) {
         return NumberFormat.getCurrencyInstance().format(pedido.getValorFormatado());
     }
 }
+

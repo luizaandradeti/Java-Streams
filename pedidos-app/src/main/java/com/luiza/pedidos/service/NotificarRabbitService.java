@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class RabbitService {
+public class NotificarRabbitService {
 
     private RabbitTemplate rabbitTemplate;
 
-    public void notificacao(Pedido pedido, String exchange) {
+    public void notificar(Pedido pedido, String exchange) {
         rabbitTemplate.convertAndSend(exchange, "", pedido);
     }
 }
