@@ -8,18 +8,15 @@ import com.luiza.pedidos.tabelas.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PedidoService {
-    private final NotificarRabbitService notificarRabbitService;
 
     @Autowired
     PedidoRepository pedidoRepository;
-    private final String exchange;
 
-    public PedidoService(NotificarRabbitService notificarRabbitService, String exchange) {
-        this.notificarRabbitService = notificarRabbitService;
-        this.exchange = exchange;
-    }
+
     public PedidoResponseDto criar(PedidoRequestDto requestDto) {
         Pedido Pedido = PedidoMapper.INSTANCE.convertDtoToPedido(requestDto);
         pedidoRepository.save(Pedido);
@@ -27,9 +24,12 @@ public class PedidoService {
     }
     private void notificarRabbitMQ(Pedido pedido) {
         try {
-            notificarRabbitService.notificar(pedido, exchange);
+            System.out.println("Enviando notificacao...");
         } catch (RuntimeException ex) {
             pedidoRepository.atualizarStatusIncluida(pedido.getId(), false);
         }
+    }
+    public List<PedidoResponseDto> obterPedido() {
+        return PedidoMapper.INSTANCE.convertListEntityToListDto(pedidoRepository.findAll());
     }
 }

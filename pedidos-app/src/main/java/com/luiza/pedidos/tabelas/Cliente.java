@@ -1,8 +1,12 @@
 package com.luiza.pedidos.tabelas;
+
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +18,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Cliente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,10 +27,13 @@ public class Cliente {
     private String tel;
     private String cpf;
     private Double salario;
-    private Double prazoPagamento;
 
 
 
+
+    @OneToOne(mappedBy = "cliente")
+    @JsonBackReference
+    private Pedido pedido;
     // Um cliente possui um pedido
 }
 

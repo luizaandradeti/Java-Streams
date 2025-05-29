@@ -22,9 +22,9 @@ public class Pedido {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
-        private Double valorFormatado;
+        private double valorFormatado;
         private int prazoPagamento;
-        private Boolean aprovada;
+        private boolean aprovada;
         private boolean incluida;
         private String detalhes;
 
@@ -32,7 +32,5 @@ public class Pedido {
         @JoinColumn(name = "id_cliente")
         @JsonManagedReference
         private Cliente cliente;
-
-
         //um pedido pertence a um cliente, inner join atraves de id
     }
